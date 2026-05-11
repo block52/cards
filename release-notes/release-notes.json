@@ -1,0 +1,43 @@
+[
+  {
+    "id": "pokerchain-v0.1.74",
+    "date": "2026-05-11",
+    "title": "Pokerchain v0.1.74",
+    "version": "v0.1.74",
+    "tags": ["pokerchain", "release"],
+    "highlights": [
+      "This release fixes SNG game creation to properly emit nextSmallBlind and nextBigBlind fields, and adds automated SSH deployment of the linux-amd64 binary to node1.block52.xyz."
+    ],
+    "features": [],
+    "bugFixes": [
+      "poker: emit nextSmallBlind/nextBigBlind on SNG game creation (#183, #184)"
+    ],
+    "improvements": [
+      "ci(release): SSH-deploy linux-amd64 binary to node1.block52.xyz"
+    ],
+    "tests": []
+  },
+  {
+    "id": "poker-vm-v1.0.14",
+    "date": "2026-05-08",
+    "title": "Poker VM v1.0.14",
+    "version": "v1.0.14",
+    "tags": ["poker-vm", "release"],
+    "highlights": [],
+    "features": [
+      "pvm: Persist SNG blind level start time across roundtrips so the level countdown stays accurate after reconnects"
+    ],
+    "bugFixes": [
+      "pvm: Preserve SNG/Tournament blind fields (smallBlind, bigBlind, ante, next-blind escalation) on GameOptionsDTO so they aren't dropped at the DTO boundary",
+      "pvm: Allow leaving an SNG/tournament when there are insufficient players to continue; rely on blind/ante checks rather than a strict currentRound gate",
+      "pvm: RPC error responses now include the original error message for easier debugging"
+    ],
+    "improvements": [
+      "pvm: Move next-blind escalation logic into IBlindsManager for a single source of truth on level transitions",
+      "pvm: Bump @block52/poker-vm-sdk to ^1.1.18"
+    ],
+    "tests": [
+      "pvm: Regression coverage for the river raise-then-call scenario — roundEndDetectionManager unit test plus an integration test that replays the exact state from the issue and verifies performAction(FOLD) and performAction(CALL) both succeed "
+    ]
+  }
+]
