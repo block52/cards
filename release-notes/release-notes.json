@@ -1,5 +1,49 @@
 [
   {
+    "id": "weekly-2026-W23",
+    "date": "2026-06-06",
+    "title": "Optimistic WS Gateway launch, engine fixes, and UI performance sprint",
+    "tags": [
+      "poker-vm@sdk-v1.2.4",
+      "pokerchain@v0.1.82",
+      "weekly"
+    ],
+    "highlights": [
+      "Shipped optimistic WS-first gateway with per-viewer state masking, HTTP action ingress, and prod deploy script",
+      "Multi-PR UI CPU sprint: memoized signing client, split GameStateContext into 5 slices, memoized player components",
+      "Fixed SNG heads-up lock-up (DEAL floor was minPlayers entry count instead of 2)"
+    ],
+    "features": [
+      "Gateway per-viewer state masking: deck always hidden, hole cards visible to owner only",
+      "Gateway HTTP POST /actions ingress — request/response submission, broadcasts stay on WS",
+      "Gateway deploy script: SSH + compose + nginx WSS location for pvm.block52.xyz",
+      "Real PVM-backed Texas Hold'em playable end-to-end through WS gateway",
+      "Go WS action gateway spike: in-memory vs Redis state store + stress test",
+      "UI GatewayApi client + action signing for optimistic WS gateway (additive, no behavior change)",
+      "Force-close cash table: creator kicks and refunds all seated players"
+    ],
+    "bugFixes": [
+      "SNG heads-up lock-up: DEAL floor corrected to 2 (heads-up), not minPlayers entry count",
+      "Allow short all-in shove when already facing a bet",
+      "Sparse checkout missing pvm/go/gateway path — deploy now materializes gateway correctly",
+      "Hide top-up chips button in SNG games where it should not appear"
+    ],
+    "improvements": [
+      "Memoize getSigningClient as promise-keyed singleton — eliminates per-action PBKDF2 stall + RPC handshake",
+      "Per-seat usePlayerChipData + memoized PlayerChipDisplay leaf — stops 9x render fan-out",
+      "Split GameStateContext into five slice contexts to prevent full-tree re-renders",
+      "Kill redundant polling; memoize providers and hook return values",
+      "Delete dead useCosmosGameState REST poller — no consumers",
+      "Lint cleanup across hand-action hooks",
+      "Bump @block52/poker-vm-sdk to 1.2.4",
+      "Docs: optimistic WS-first action flow architecture — chain removed from hot path",
+      "Docs: production gateway deployment record with smoke-test numbers"
+    ],
+    "tests": [
+      "Repair phh-dataset runner — restore stripped console.log calls so test output is readable"
+    ]
+  },
+  {
     "id": "pokerchain-v0.1.74",
     "date": "2026-05-11",
     "title": "Pokerchain v0.1.74",
