@@ -1,10 +1,55 @@
 [
   {
+    "id": "2026-W23",
+    "date": "2026-06-06",
+    "title": "Optimistic WS Gateway Launch + Frontend CPU Optimization Series",
+    "tags": [
+      "poker-vm",
+      "ui",
+      "gateway",
+      "performance"
+    ],
+    "highlights": [
+      "Shipped optimistic WebSocket gateway end-to-end: state masking, HTTP ingress, real PVM-backed apply, and production deploy",
+      "Completed 3-part frontend CPU optimization — split GameStateContext into slices, memoized player components, killed PBKDF2 stall",
+      "Added GatewayApi client with action signing to the UI for the new optimistic gateway"
+    ],
+    "features": [
+      "gateway: per-viewer state masking — deck always hidden, hole cards own-only",
+      "gateway: HTTP POST /actions ingress with request/response submit; broadcasts stay on WS",
+      "gateway: real PVM-backed Apply — actual hold'em through the WS gateway",
+      "gateway: Go WS action gateway spike — in-memory vs Redis state store + stress test",
+      "deploy: gateway deploy script — SSH + compose + nginx WSS location",
+      "ui: GatewayApi client + action signing for the optimistic gateway",
+      "ui: force-close cash table — creator kicks and refunds all players"
+    ],
+    "bugFixes": [
+      "engine: SNG keeps dealing after busts — fix DEAL floor to heads-up, not minPlayers",
+      "engine: allow short all-in shove when facing a bet",
+      "deploy: materialize pvm/go/gateway in sparse checkout",
+      "ui: hide top-up chips button in SNG games",
+      "tests: repair phh-dataset runner — restore stripped console.log calls"
+    ],
+    "improvements": [
+      "ui FE CPU #1: kill redundant polling, memoize providers and hook returns",
+      "ui FE CPU #2: split GameStateContext into five slice contexts to stop full-tree re-renders",
+      "ui FE CPU #3: per-seat usePlayerChipData + memoized PlayerChipDisplay leaf component",
+      "ui: memoize getSigningClient as a promise-keyed singleton — kill per-action PBKDF2 stall",
+      "chore: delete dead useCosmosGameState REST poller (no consumers)",
+      "chore: lint cleanup across hand-action hooks",
+      "chore: bump @block52/poker-vm-sdk to 1.2.4",
+      "docs: record optimistic WS-first action flow architecture"
+    ]
+  },
+  {
     "id": "pokerchain-v0.1.74",
     "date": "2026-05-11",
     "title": "Pokerchain v0.1.74",
     "version": "v0.1.74",
-    "tags": ["pokerchain", "release"],
+    "tags": [
+      "pokerchain",
+      "release"
+    ],
     "highlights": [
       "This release fixes SNG game creation to properly emit nextSmallBlind and nextBigBlind fields, and adds automated SSH deployment of the linux-amd64 binary to node1.block52.xyz."
     ],
@@ -22,7 +67,10 @@
     "date": "2026-05-08",
     "title": "Poker VM v1.0.14",
     "version": "v1.0.14",
-    "tags": ["poker-vm", "release"],
+    "tags": [
+      "poker-vm",
+      "release"
+    ],
     "highlights": [],
     "features": [
       "pvm: Persist SNG blind level start time across roundtrips so the level countdown stays accurate after reconnects"
