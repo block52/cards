@@ -1,5 +1,44 @@
 [
   {
+    "id": "weekly-2026-W24",
+    "date": "2026-06-11",
+    "title": "Gateway settlement relay, SDK signing, showdown privacy fix & UI util deduplication",
+    "tags": [
+      "poker-vm@sdk-v1.2.5",
+      "pokerchain@v0.1.84",
+      "weekly"
+    ],
+    "highlights": [
+      "SDK signPerformAction enables client-side signing of cosmos txs to base64 TxRaw without broadcasting",
+      "Gateway settlement relay completed — signed cosmos txs forwarded to chain at settlement boundaries",
+      "Fixed critical showdown privacy leak (hole cards exposed to all subscribers) and short-shove ALL_IN legalActions bug"
+    ],
+    "features": [
+      "sdk: signPerformAction — sign MsgPerformAction to base64 TxRaw without broadcasting (v1.2.5)",
+      "gateway: settlement relay — forward signed cosmos txs to chain at settlement boundaries",
+      "gateway: persist Redis state store for rollout",
+      "gateway: chain table recovery via GameStateFull (#217)",
+      "ui: attach signed cosmos tx for settlement relay (§6.10)",
+      "ui: wire optimistic gateway transport behind VITE_GAME_TRANSPORT flag (#440)"
+    ],
+    "bugFixes": [
+      "gateway: fix showdown card reveal leaking all players' hole cards to every subscriber",
+      "engine: offer ALL_IN in legalActions when a short shove faces a bet (#2190)",
+      "ui: route leave and top-up actions through gateway transport (#440)"
+    ],
+    "improvements": [
+      "engine: replace inline short-shove CALL check with hasValue guard (#2190)",
+      "ui: extract truncateMiddle utility, dedupe address/hash formatters (#449)",
+      "ui: extract copyToClipboard util + useCopyToClipboard hook (#449)",
+      "ui: centralize localStorage keys in constants/storageKeys (#449)",
+      "ui: remove deprecated Wei formatters from numberUtils (#449)",
+      "ui: remove verified dead code, move docs out of src (#449)"
+    ],
+    "tests": [
+      "engine: multiway short-shove regression test for #2244"
+    ]
+  },
+  {
     "id": "weekly-2026-W23",
     "date": "2026-06-06",
     "title": "Optimistic WS Gateway launch, engine fixes, and UI performance sprint",
