@@ -1,5 +1,45 @@
 [
   {
+    "id": "weekly-2026-W25",
+    "date": "2026-06-17",
+    "title": "Go Engine Foundation + SNG Fixes & UI Refactor",
+    "tags": [
+      "poker-vm@sdk-v1.2.6",
+      "pokerchain@v0.1.88",
+      "weekly"
+    ],
+    "highlights": [
+      "Laid Go engine foundation: domain model, public interfaces, hand evaluator, and JSON round-trip parity",
+      "Fixed SNG blind countdown and auto-join routing through gateway with correct seat/action index",
+      "Broad UI refactor: guard helpers, tested format/variant parsers, and deduplicated utility functions"
+    ],
+    "features": [
+      "go-engine: domain model — Player, Card, Deck, Turn enums (#2281)",
+      "go-engine: public interfaces & wire DTOs (#2280)",
+      "go-engine: hand evaluator — best 5 of 7 cards (#2285)",
+      "go-engine: engine skeleton with FromJSON/ToJSON parity (#2288)"
+    ],
+    "bugFixes": [
+      "sng: throw on missing startingStack/blindLevelDuration instead of silently defaulting (#2284)",
+      "engine: unify next-player path and make toJson read-only to fix state mutation (#2279)",
+      "ui: read levelStartTime off gameState so SNG blind countdown displays correctly (#461)",
+      "gateway: route SNG auto-join through gateway with real seat and correct action index (#460)",
+      "gateway: route leave/top-up through gateway and pace auto-new-hand showdown (#452)"
+    ],
+    "improvements": [
+      "engine: apply guard-pattern across all legal actions (#2278)",
+      "engine: purge dead code from TexasHoldemGame (#2260)",
+      "engine: guard-pattern cleanup for dealerPosition, parseGameOptions, action amounts (#2253)",
+      "ui: route format/variant casts through centralized tested parsers (#462)",
+      "ui: adopt guard helpers across utils, hooks, and densest files (#451 #453 #459)",
+      "ui: extract truncateMiddle, dedupe address/hash formatters, extract shared utilities (#454 #456)",
+      "ui: remove verified dead code, move docs out of src (#455)"
+    ],
+    "tests": [
+      "engine: prove SNG blind escalation and config survive per-action round-trip (#2287)"
+    ]
+  },
+  {
     "id": "weekly-2026-W24",
     "date": "2026-06-11",
     "title": "Gateway settlement relay, SDK signing, showdown privacy fix & UI util deduplication",
