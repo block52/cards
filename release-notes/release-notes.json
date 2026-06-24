@@ -1,5 +1,44 @@
 [
   {
+    "id": "weekly-2026-W26",
+    "date": "2026-06-24",
+    "title": "WS-First Money-Movers, SNG Stability Fixes, SDK 1.2.8",
+    "tags": [
+      "poker-vm@sdk-v1.2.8",
+      "pokerchain@v0.1.88",
+      "weekly"
+    ],
+    "highlights": [
+      "Shipped WS-first money-mover settlement: SDK signs txs, UI routes buy-in/leave direct to chain",
+      "Resolved four SNG correctness bugs: prize payout, terminal state, JOIN blocking, sub-blind all-in",
+      "Released SDK 1.2.8 with wheel straight-flush detection and simplified preflop hand mnemonics"
+    ],
+    "features": [
+      "feat(sdk): sign-only money-mover txs for WS-first settlement (1.2.8)",
+      "feat(ui): WS-first money-movers — gateway relays pre-signed correct-type tx",
+      "feat(sng/ui): show blind-level overtime as negative countdown in UI"
+    ],
+    "bugFixes": [
+      "fix(ui): route money-movers direct to chain, never via the gateway",
+      "fix(ui): no invented blindLevelDuration default — pass 0, fail at chain",
+      "fix(sng/ui): blind-level countdown resets correctly on each new level",
+      "fix(sng): settle prize payout on LEAVE, not table chips",
+      "fix(sng): block JOIN once the tournament is underway, not just mid-hand",
+      "fix(sng): keep terminal state stable as players leave",
+      "fix(sng): don't bust a sub-blind stack at reInit — post all-in instead",
+      "fix(sdk): recognize wheel (A-2-3-4-5) straight flush",
+      "fix(sdk): simplify preflop hand mnemonics to \"X high\"",
+      "fix(pvm): sync bun.lock to SDK 1.2.7 to unblock frozen-lockfile build"
+    ],
+    "improvements": [
+      "chore(sdk): release 1.2.7 — wheel SF, preflop mnemonics, seating enums (#2139)"
+    ],
+    "tests": [
+      "test(go-engine): non-player action Verify→TS parity corpus",
+      "test(engine): rewrite min-raise test (#2134) with the act() DSL"
+    ]
+  },
+  {
     "id": "weekly-2026-W25",
     "date": "2026-06-17",
     "title": "Go Engine Foundation + SNG Fixes & UI Refactor",
