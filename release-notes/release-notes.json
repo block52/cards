@@ -1,5 +1,31 @@
 [
   {
+    "id": "weekly-2026-W27",
+    "date": "2026-07-01",
+    "title": "WS-first SNG payouts land via finishing order on LEAVE",
+    "tags": [
+      "poker-vm@sdk-v1.2.9",
+      "pokerchain@v0.1.92",
+      "weekly"
+    ],
+    "highlights": [
+      "WS-first Sit & Go wins now settle on chain by passing finishing order on LEAVE (SDK v1.2.9)",
+      "Added MsgLeaveGame.finishingOrder to the SDK and wired it through the UI",
+      "Backend PVM logs now survive restarts via stdout tee + configurable disk path"
+    ],
+    "features": [
+      "SDK: MsgLeaveGame.finishingOrder enables WS-first SNG payout (poker-vm #2338)"
+    ],
+    "bugFixes": [
+      "SNG: pass finishing order on LEAVE so a WS-first win settles on chain (ui #471, #470)",
+      "PVM: tee logs to stdout + configurable disk path so they survive restart (poker-vm #2332, #2329)"
+    ],
+    "improvements": [],
+    "tests": [
+      "SNG: lock in LEAVE from an undealt round-`end` lobby (poker-vm #2328, #2017)"
+    ]
+  },
+  {
     "id": "weekly-2026-W26",
     "date": "2026-06-24",
     "title": "WS-First Money-Movers, SNG Stability Fixes, SDK 1.2.8",
