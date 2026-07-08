@@ -1,5 +1,36 @@
 [
   {
+    "id": "weekly-2026-W28",
+    "date": "2026-07-08",
+    "title": "SNG claim flow overhaul: recordHandEnd SDK push, frozen roster, and claim-only terminal UI",
+    "tags": [
+      "poker-vm@sdk-v1.2.12",
+      "pokerchain@v0.1.94",
+      "weekly"
+    ],
+    "highlights": [
+      "Shipped SDK 1.2.12 with MsgRecordHandEnd + recordHandEnd() for player-signed hand-end push",
+      "Landed frozen SNG roster with explicit CLAIM action, then removed the vestigial PVM/SDK CLAIM",
+      "Delivered dedicated Claim winnings flow and claim-only terminal modal in the UI"
+    ],
+    "features": [
+      "SDK: MsgRecordHandEnd + recordHandEnd() player-signed hand-end push (SDK 1.2.12)",
+      "Engine: frozen SNG roster + explicit CLAIM action fixing stale-roster root cause",
+      "UI: dedicated Claim winnings flow for a decided tournament"
+    ],
+    "bugFixes": [
+      "SNG terminal modal is claim-only: shows Paid! and hides Leave for paid finishers",
+      "Prize button copy corrected from Claim to Collect"
+    ],
+    "improvements": [
+      "Removed vestigial PVM/SDK CLAIM action — claiming is now chain-only settlement",
+      "Finished PR2 guard-tail adoption across UI guards",
+      "Bumped @block52/poker-vm-sdk to 1.2.12 in the UI",
+      "Reverted Go PVM repo split to restore gateway for Phase 2b"
+    ],
+    "tests": []
+  },
+  {
     "id": "weekly-2026-W27",
     "date": "2026-07-01",
     "title": "WS-first SNG payouts land via finishing order on LEAVE",
