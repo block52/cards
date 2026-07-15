@@ -1,5 +1,47 @@
 [
   {
+    "id": "weekly-2026-W29",
+    "date": "2026-07-15",
+    "title": "SNG payout authority, WS Action Bus, and engine Table/Hand refactor",
+    "tags": [
+      "poker-vm@sdk-v1.2.17",
+      "pokerchain@v0.1.96",
+      "weekly"
+    ],
+    "highlights": [
+      "PVM is now the SNG payout authority — canonical curve, frozen entrants, drift fixed",
+      "UI reads PVM-authored payouts[] and real winner seat instead of hardcoded curves",
+      "Landed WS Action Bus for serialized, decoratable game-state ingest (Phases 0–5)"
+    ],
+    "features": [
+      "SDK: leaveGame accepts finishingOrder — broadcast SNG claim from the ordering",
+      "Engine: stamp winner seat on hand end",
+      "UI: WS Action Bus — serialized, decoratable game-state ingest (Phases 0–5)"
+    ],
+    "bugFixes": [
+      "Engine: correct SNG payout math — canonical curve, frozen entrants, drift",
+      "Engine: freeze SNG roster across the between-hands window on LEAVE",
+      "PVM: rpc.ts null-result path returns method-scoped error",
+      "UI: read PVM-authored payouts[] instead of a hardcoded curve; drop % label",
+      "UI: SNG winner shows real seat + correct win type, not 'Seat 0 · Showdown'",
+      "UI: pass finishingOrder into the claim settle; surface non-benign recordHandEnd failures",
+      "UI: SNG Payouts panel reads authoritative state.payouts",
+      "UI: remove club logo watermark from table play screen"
+    ],
+    "improvements": [
+      "Engine: rename TexasHoldemGame -> Table; extract Table/Hand seam via IHand interface",
+      "Engine: encapsulate community cards in a Board class; single total-pot path",
+      "Engine: collapse duplicate format/gameFormat getters; apply shared guards in PokerGameBase",
+      "Engine: split action base into HandAction / TableAction; share seat map by reference",
+      "UI: route node-page raw fetch through HTTPClient",
+      "Docs/CI: document pinned Node 22.13.0 and fix Node 20 deprecation warning"
+    ],
+    "tests": [
+      "Engine: pin cash LEAVE removes player from array + records refund; leave-forfeits-bets",
+      "UI: add seat to WinnerDTO mocks (required as of SDK 1.2.15)"
+    ]
+  },
+  {
     "id": "weekly-2026-W28",
     "date": "2026-07-08",
     "title": "SNG claim flow overhaul: recordHandEnd SDK push, frozen roster, and claim-only terminal UI",
