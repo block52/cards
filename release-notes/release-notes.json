@@ -1,5 +1,41 @@
 [
   {
+    "id": "weekly-2026-W30",
+    "date": "2026-07-22",
+    "title": "Unordered trustless settlement, free buy-in security fix, and end-to-end money-conservation harness",
+    "tags": [
+      "poker-vm@sdk-v1.2.17",
+      "pokerchain@v0.1.96",
+      "weekly"
+    ],
+    "highlights": [
+      "Settlement txs now sign as unordered (no account sequence) across SDK, gateway, and UI",
+      "Security fix: reject money-in movers with no settlement tx — no more free/unfunded buy-ins",
+      "New smoke harness plays 20 hands + leave and verifies chain == gateway money conservation"
+    ],
+    "features": [
+      "sdk: sign settlement txs as unordered — no account sequence",
+      "gateway: resync push on settlement sequence-mismatch reject",
+      "gateway: drain retries recoverable rejects instead of dropping (no-drop)",
+      "ui: re-anchor cosmos sequence on gateway resync push"
+    ],
+    "bugFixes": [
+      "gateway: reject money-in movers with no settlement tx to prevent free buy-ins",
+      "gateway: settlement drain verifies DeliverTx, not just CheckTx",
+      "ui: block buy-in/top-up when the escrow tx can't be signed",
+      "ui: drop client-side sequence tracking for gameplay under unordered settlement",
+      "ui: show only PVM-authored absolute payout amounts, dropping the hardcoded curve"
+    ],
+    "improvements": [
+      "engine: replace raw .length comparisons with isEmpty/hasElements guards",
+      "docs: correct diagrams — settlement is trustless, unordered, serial drain"
+    ],
+    "tests": [
+      "End-to-end settlement smoke harness verifying chain == gateway",
+      "Multi-hand settlement smoke: play 20 hands, leave, assert money conservation"
+    ]
+  },
+  {
     "id": "weekly-2026-W29",
     "date": "2026-07-15",
     "title": "SNG payout authority, WS Action Bus, and engine Table/Hand refactor",
