@@ -1,5 +1,43 @@
 [
   {
+    "id": "weekly-2026-W33",
+    "date": "2026-08-12",
+    "title": "Chain-direct transport default, Go engine parity fixes, and ante deadlock resolution",
+    "tags": [
+      "poker-vm@pvm/go/engine/v1.0.3",
+      "pokerchain@v0.1.118",
+      "weekly"
+    ],
+    "highlights": [
+      "Made chain-direct the default game transport and retired the legacy gateway relay",
+      "Fixed multiple Go engine v2 parity issues (winners, board, sit-in) against TS v1",
+      "Broke the round=ante deadlock triggered by join+sit-in between hands"
+    ],
+    "features": [
+      "Make chain-direct the default game transport, retiring the legacy gateway",
+      "Always send the player seed on new hand, including chain transport",
+      "Render the relay's optimistic mempool push in the WS bus",
+      "In-process v2 Go engine apply mode so bots run on v2",
+      "Auto-scaling UI for all mobile/foldable devices"
+    ],
+    "bugFixes": [
+      "Break the round=ante sit-in deadlock after join+sit-in between hands",
+      "Activate sit-in on a below-quorum ANTE table to break deadlock",
+      "FromJSON loads winnersMap to mirror TS _winners",
+      "SIT_IN runs checkBootstrap to activate at END",
+      "NEW_HAND clears winners and the board in ToJSON",
+      "Eliminate white background and fix hand strength position on Pixel Fold",
+      "WS ping/pong keepalive so a dead feed reconnects"
+    ],
+    "improvements": [
+      "Extract WS Action Gateway into block52/poker-gateway",
+      "Consolidate background colour to App.css, removing duplicate from index.css"
+    ],
+    "tests": [
+      "Full-dataset PHH parity sweep (~2k NLHE hands, TS v1 vs Go v2)"
+    ]
+  },
+  {
     "id": "weekly-2026-W30",
     "date": "2026-07-22",
     "title": "Unordered trustless settlement, free buy-in security fix, and end-to-end money-conservation harness",
