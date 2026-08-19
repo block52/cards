@@ -1,5 +1,31 @@
 [
   {
+    "id": "weekly-2026-W34",
+    "date": "2026-08-19",
+    "title": "Waiting-for-big-blind engine state and serialized action submission",
+    "tags": [
+      "poker-vm@pvm/go/engine/v1.0.5",
+      "pokerchain@v0.1.130",
+      "weekly"
+    ],
+    "highlights": [
+      "Go engine gains first-class WAITING_FOR_BIG_BLIND state plus SIT_IN_AND_WAIT",
+      "UI action buttons now submit reliably via a serialized submission controller",
+      "Players joining mid-hand auto-enter 'waiting for big blind'"
+    ],
+    "features": [
+      "Go engine: first-class WAITING_FOR_BIG_BLIND state and SIT_IN_AND_WAIT (#2536)",
+      "Engine: auto 'waiting for big blind' on join (#2533)"
+    ],
+    "bugFixes": [
+      "UI: fix action buttons requiring two clicks / silent submission failure (#543)"
+    ],
+    "improvements": [
+      "UI: clarify treasury table filter label in tables list (#540)"
+    ],
+    "tests": []
+  },
+  {
     "id": "weekly-2026-W33",
     "date": "2026-08-12",
     "title": "Chain-direct transport default, Go engine parity fixes, and ante deadlock resolution",
