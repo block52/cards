@@ -1,5 +1,40 @@
 [
   {
+    "id": "weekly-2026-W35",
+    "date": "2026-08-26",
+    "title": "Go engine correctness fixes, wait-for-BB seating, and per-module CI gating",
+    "tags": [
+      "poker-vm@pvm/go/engine/v1.0.7",
+      "pokerchain@v0.1.133",
+      "weekly"
+    ],
+    "highlights": [
+      "Fixed rake never being paid — ToJSON now serializes the computed rake so the chain pays the owner",
+      "Corrected preflop full-raise all-in so it properly reopens betting in the Go engine",
+      "Split go-test CI into per-module workflows gated on folder changes, cutting redundant runs"
+    ],
+    "features": [
+      "Restored the \"Sit In And Wait for BB\" button in the UI action panel (#546)"
+    ],
+    "bugFixes": [
+      "engine: serialize computed rake in ToJSON so the chain pays the rake owner (#2540)",
+      "go-engine: preflop full-raise all-in must reopen betting (#2538)",
+      "engine: rotate BB onto wait-for-BB entrant, scoped to reInit (#2546)",
+      "Reverted the broader TS wait-for-BB change (#2548) in favour of the scoped Go fix (#2549)",
+      "cosmos: retry chain-direct money-movers on account sequence mismatch (#544)"
+    ],
+    "improvements": [
+      "ci: split go-test.yml into one workflow per Go module (#2544)",
+      "ci: run each go-test job only when its own module changed (#2542)",
+      "Updated CI badge for the Go workflow",
+      "Closed frontend refactoring audit: dead code, guard adoption, duplication, type/arch smells (#449)"
+    ],
+    "tests": [
+      "Benchmarked Go PVM engine vs TS PVM (in-process vs RPC) now that managers are ported (#2481)",
+      "A/B measured the async-confirm drain against the fuzz smoke harness (#2472)"
+    ]
+  },
+  {
     "id": "weekly-2026-W34",
     "date": "2026-08-19",
     "title": "Waiting-for-big-blind engine state and serialized action submission",
