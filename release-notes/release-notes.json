@@ -1,5 +1,46 @@
 [
   {
+    "id": "weekly-2026-W36",
+    "date": "2026-09-02",
+    "title": "Sit & Go hardening: entry fees, payouts, blind clock, and seating fixes",
+    "tags": [
+      "poker-vm@pvm/go/engine/v1.0.13",
+      "pokerchain@v0.1.143",
+      "weekly"
+    ],
+    "highlights": [
+      "Fixed the SNG lockup after the first bust — new-hand floor is 2 players, not entry count",
+      "Shipped end-to-end SNG entry fees and prospective payouts from engine through SDK to the UI",
+      "Serialized the SNG blind clock and advanced blind levels so timers and levels finally show in the UI"
+    ],
+    "features": [
+      "SNG entry fees: entryFee on MsgCreateGame + GameOptions, with create input and join display in the UI",
+      "Engine emits prospective SNG payouts[] in ToJSON, powering the UI payouts panel",
+      "Added MUCKED player status to the SDK (v1.3.5)",
+      "SNG payouts moved to a sub-header trigger, restyled as a Buy-In-style modal",
+      "Preselect \"Check\" as a pre-action before your turn",
+      "Top-right error toasts now auto-dismiss after 3 seconds"
+    ],
+    "bugFixes": [
+      "SNG no longer locks up after the first player busts",
+      "Advanced SNG blind level and blinds now persist through ToJSON",
+      "SNG blind clock (sngStartTime/levelStartTime) serialized in ToJSON",
+      "SNG bootstrap activates SITTING_IN entrants when the table fills",
+      "Players who deliberately sat out are no longer auto-sat-in",
+      "Recover from account-sequence mismatch on gameplay actions",
+      "Rake table creation fixed: read-only rake owner address, whole-number rake dropdown (1–10)",
+      "Renamed \"Leave Table\" to \"Spectate Table\" on the Sit & Go bust-out modal"
+    ],
+    "improvements": [
+      "SDK bumped to 1.3.4 to publish entryFee, then 1.3.5 for MUCKED",
+      "Clarified the table share action label for the QR flow"
+    ],
+    "tests": [
+      "SNG deadlock invariant test asserts the table is progressable, not just its status",
+      "Engine test: SNG seats at startingStack, decoupled from entry fee"
+    ]
+  },
+  {
     "id": "weekly-2026-W35",
     "date": "2026-08-26",
     "title": "Go engine correctness fixes, wait-for-BB seating, and per-module CI gating",
