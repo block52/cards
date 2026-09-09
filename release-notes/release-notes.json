@@ -1,5 +1,43 @@
 [
   {
+    "id": "weekly-2026-W37",
+    "date": "2026-09-09",
+    "title": "Paid table naming, SNG protocol fees, and the player directory",
+    "tags": [
+      "poker-vm@sdk-v1.4.0",
+      "pokerchain@v0.1.152",
+      "weekly"
+    ],
+    "highlights": [
+      "Paid table naming shipped end to end: SDK createGame field, chain-matched validation, create form, lobby and in-game header",
+      "SNG protocol fee foundation: protocolFeeBps config, prize pool sized net of entry + protocol fee, UI fee breakdown and validator earnings panel",
+      "New /players directory and profile pages backed by a fresh indexer search + profile API"
+    ],
+    "features": [
+      "SDK 1.4.0: table name on createGame plus a fee helper",
+      "SDK protocol fee foundation — protocolFeeBps config and ValidatorBond type",
+      "PVM shrinks the SNG prize pool by the protocol fee",
+      "Indexer: player directory search and full profile endpoint",
+      "UI: /players directory and profile with indexer stats and VIP status",
+      "UI: SNG protocol fee breakdown and validator earnings panel",
+      "UI: paid table naming on the create form, lobby, admin form, and in-game header",
+      "UI: top-up button always visible, disabled while in the hand"
+    ],
+    "bugFixes": [
+      "Go engine: offer the short-shove all-in via RAISE {stack, stack}",
+      "Go engine: SNG no longer deadlocks at final heads-up → winner on a dust bust",
+      "Engine: size the SNG prize pool net of entryFee and protocolFee so settlement no longer over-distributes",
+      "UI: table-name validation now matches the chain's ENS rule",
+      "UI: restore the Table Admin name field dropped in a merge",
+      "UI: fix table zoom regression; reverted the home page whitespace change"
+    ],
+    "improvements": [
+      "Sit-out/sit-in UX overhaul with new seat colours and a 6 o'clock seat toggle",
+      "Removed the stale on-chain ValidatorBond type dependency ahead of the next regen"
+    ],
+    "tests": []
+  },
+  {
     "id": "weekly-2026-W36",
     "date": "2026-09-02",
     "title": "Sit & Go hardening: entry fees, payouts, blind clock, and seating fixes",
