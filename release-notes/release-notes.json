@@ -1,5 +1,36 @@
 [
   {
+    "id": "weekly-2026-W38",
+    "date": "2026-09-16",
+    "title": "Exact USDC math, steel wheel hand ranking, and play-page performance",
+    "tags": [
+      "poker-vm@sdk-v1.4.0",
+      "pokerchain@v0.1.155",
+      "weekly"
+    ],
+    "highlights": [
+      "Fixed USDC conversion to use exact integer math instead of floats, ending micro-unit rounding loss",
+      "Ranked the steel wheel (A-2-3-4-5 suited) as a straight flush in the Go engine, backed by full 5-card enumeration",
+      "Cut per-frame table render cost and paced all-in runout animations on the play page"
+    ],
+    "features": [],
+    "bugFixes": [
+      "Convert USDC amounts exactly, never through a float (2.01 USDC no longer becomes 2009999)",
+      "Auto-fold/muck/show/pre-check no longer silently skipped when effect cleanup cancelled the 500ms timer",
+      "Go engine ranks A-2-3-4-5 suited as a straight flush rather than a flush"
+    ],
+    "improvements": [
+      "Stopped per-frame table render costs on the play page",
+      "Paced all-in runout animations and reduced play-page CPU usage",
+      "Dropped duplicated Card Distribution and Nodes cards from the explorer sub-nav",
+      "Restored PVM auto-deploy CI so deploys ship the tested commit, not latest main"
+    ],
+    "tests": [
+      "Enumerated every 5-card hand to guard hand-ranking correctness",
+      "Ground-truthed the engine against real hand histories and settled chip counts the corpus only bounded"
+    ]
+  },
+  {
     "id": "weekly-2026-W37",
     "date": "2026-09-09",
     "title": "Paid table naming, SNG protocol fees, and the player directory",
