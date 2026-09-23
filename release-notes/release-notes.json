@@ -1,5 +1,46 @@
 [
   {
+    "id": "weekly-2026-W39",
+    "date": "2026-09-23",
+    "title": "SDK hardening, action clock, and sequenced showdown",
+    "tags": [
+      "poker-vm@pvm/go/engine/v1.0.18",
+      "pokerchain@v0.1.159",
+      "weekly"
+    ],
+    "highlights": [
+      "Removed signWithdrawal from the SDK — it put an Ethereum private key in a transaction",
+      "SDK now throws on failed execution: all 13 broadcasting methods check the DeliverTx code",
+      "Go engine gained a permissionless TIMEOUT action clock and a sequenced clockwise showdown with losing-hand muck"
+    ],
+    "features": [
+      "Action clock in the Go engine via a permissionless TIMEOUT action (#2614)",
+      "Sequenced clockwise showdown with losing-hand muck (#2586)",
+      "History shows and retains \"won with X over Y\" showdown summaries (#669)"
+    ],
+    "bugFixes": [
+      "Sign performActionSync unordered so no account sequence can race it (#2621)",
+      "SDK broadcasting methods throw instead of returning a hash for failed execution (#2618)",
+      "SNG payouts read committed state, never a mempool projection (#672)",
+      "Auto actions latch on submission and recover from a rejection (#671)",
+      "Stale decision controls hide after submit (#650)",
+      "History rows and SNG badges format buy-ins as USDC, not chips (#676, #668)",
+      "Empty Total Pot hidden; Main Pot collapses when equal (#681)",
+      "An address with no NFT avatar is no longer treated as an error (#680)",
+      "Spectate hint and 6-o'clock toggle moved into the table menu for mobile (#685)",
+      "Available Tables card fits mobile with a stacked header and no horizontal scroll (#667)",
+      "CI waits for npm to serve the version before verifying the published SDK (#2623)"
+    ],
+    "improvements": [
+      "SDK bumped to 1.4.1 with performActionSync guarded in the publish checks (#2622)",
+      "Removed the dead auto-action path from the player timer (#647)",
+      "Dropped bot/ts-smoke — the WS-gateway smoke harness had no target (#2616)"
+    ],
+    "tests": [
+      "Added usePlayerTimer coverage and removed the leftover dev-logging effect (#683)"
+    ]
+  },
+  {
     "id": "weekly-2026-W38",
     "date": "2026-09-16",
     "title": "Exact USDC math, steel wheel hand ranking, and play-page performance",
