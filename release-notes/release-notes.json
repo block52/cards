@@ -1,5 +1,34 @@
 [
   {
+    "id": "weekly-2026-W41",
+    "date": "2026-10-07",
+    "title": "Self-service node & validator onboarding, bridge admin auth, blind-posting fix",
+    "tags": [
+      "poker-vm@sdk-v1.5.1",
+      "pokerchain@v0.1.171",
+      "weekly"
+    ],
+    "highlights": [
+      "Self-service validator path end to end: /nodes portal in the UI plus SDK createValidator support",
+      "Locked down the proxy bridge endpoints behind an admin key",
+      "Fixed heads-up post-now entrants being double-charged blinds"
+    ],
+    "features": [
+      "/nodes self-service node portal: network & genesis, run a node, become a validator (ui#719)",
+      "SigningCosmosClient.createValidator + pure MsgCreateValidator builder (poker-vm#2636)"
+    ],
+    "bugFixes": [
+      "Engine: a post-now entrant no longer pays two blinds on a heads-up table (poker-vm#2635)",
+      "CI: SDK publish verify waits for the packument npm install uses, then retries (poker-vm#2637)"
+    ],
+    "improvements": [
+      "Proxy: manual-bridge and approve-bridge now require an admin key (poker-vm#2638)",
+      "Replaced catch (err: any) with narrowed unknown + type guards across 37 sites in 18 files (ui#717)",
+      "Added a showingBySeat index to drop the last per-seat scan from the table render (ui#714)"
+    ],
+    "tests": []
+  },
+  {
     "id": "weekly-2026-W39",
     "date": "2026-09-23",
     "title": "SDK hardening, action clock, and sequenced showdown",
